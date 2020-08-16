@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<th:block layout:fragment="script">
+    <script th:src="@{/js/pages/posts.js}"></script>
+</th:block>
+<div layout:fragment="content">
+    <div id="post-view-wrap">
+        <div th:object="${post}">
+            <h1 th:text="*{title}"></h1>
+            <h6 class="text-muted" th:text="*{author}" style="display: inline-block"></h6> ∙
+            <h6 class="text-muted" th:text="*{createdDate}" style="display: inline-block"></h6>
+            <hr/>
+            <p th:text="*{content}" style="min-height: 10rem"></p>
+        </div>
+        <hr/>
+        <div style="margin-top: 3rem; text-align: center;">
+            <button class="btn btn-secondary" type="button" th:onclick="'javascript:postDelete(' + ${post.id} + ');'">삭제</button>
+            <a class="btn btn-primary" role="button" th:href="@{/posts/update/{id}(id=*{id})}">수정</a>
+        </div>
+    </div>
+</div>
+</html>

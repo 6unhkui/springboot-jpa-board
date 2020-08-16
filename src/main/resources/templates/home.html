@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/layout">
+
+    <div layout:fragment="content">
+        <a class="btn btn-primary" href="/posts/save" role="button" style="margin-bottom: 1rem;">게시글 등록</a>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="post: ${posts}">
+                    <td><a th:text="${post.title}" th:href="@{/posts/view/{id}(id=${post.id})}"/></td>
+                    <td th:text="${post.author}"></td>
+                    <td th:text="${post.createdDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</html>

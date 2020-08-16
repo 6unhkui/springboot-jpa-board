@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<th:block layout:fragment="script">
+    <script th:src="@{/js/pages/posts.js}"></script>
+</th:block>
+<div layout:fragment="content">
+    <form id="post-write-form" role="form" onsubmit = "return false;" th:object="${form}">
+        <div class="form-group">
+            <label th:for="title">제목</label>
+            <input type="text" class="form-control" th:field="*{title}" placeholder="제목을 입력하세요.">
+        </div>
+        <div class="form-group">
+            <label th:for="author">작성자</label>
+            <input type="text" class="form-control" th:field="*{author}" placeholder="작성자를 입력하세요.">
+        </div>
+        <div class="form-group">
+            <label th:for="content">내용</label>
+            <textarea class="form-control" th:field="*{content}" rows="3"></textarea>
+        </div>
+        <div style="margin-top: 3rem; text-align: center;">
+            <a class="btn btn-secondary" role="button" href="/">취소</a>
+            <button class="btn btn-primary" type="submit" id="form-submit">등록</button>
+        </div>
+    </form>
+</div>
+</html>

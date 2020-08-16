@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink- to-fit=no">
+        <title>JPA Board</title>
+        <th:block th:replace="fragments/config :: configFragment" ></th:block>
+    </head>
+    <style>
+        .content-wrap {
+            margin: 2rem auto 3rem auto;
+            min-height: 30rem;
+        }
+
+        .footer-wrap {
+            text-align: center;
+            color: gray;
+        }
+    </style>
+
+    <body>
+        <th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+        <th:block layout:fragment="content" class="container content-wrap"></th:block>
+
+        <hr/>
+        <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    url : jdbc:h2:tcp://localhost/~/jpaboard
+    username : sa
+    password :
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true # SQL을 보기 좋게 출력시켜줌
+        dialect : org.hibernate.dialect.MySQL5InnoDBDialect # 쿼리 로그를 MySQL 버전으로 보기위해 설정
+
+logging:
+  level:
+    org.hibernate.SQL : debug # SQL Log 찍기
