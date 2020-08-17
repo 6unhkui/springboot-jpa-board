@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<!--<th:block layout:fragment="script">-->
+<!--    <script th:src="@{/js/pages/posts.js}"></script>-->
+<!--</th:block>-->
+<div layout:fragment="content">
+<!--    <form id="post-update-form" role="form" onsubmit = "return false;" th:object="${post}">-->
+<!--&lt;!&ndash;        <input type="hidden" th:field="*{id}" id="id">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label th:for="title">제목</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" class="form-control" th:field="*{title}" placeholder="제목을 입력하세요.">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label th:for="author">작성자</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" class="form-control" th:field="*{author}" readonly >&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label th:for="content">내용</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <textarea class="form-control" th:field="*{content}" rows="3"></textarea>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div style="margin-top: 3rem; text-align: center;">&ndash;&gt;-->
+<!--&lt;!&ndash;            <a class="btn btn-secondary" role="button" href="/">취소</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="btn btn-primary" type="submit" id="form-submit">수정</button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    </form>-->
+</div>
 </html>

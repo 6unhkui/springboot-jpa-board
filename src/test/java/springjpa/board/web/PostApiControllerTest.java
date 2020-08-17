@@ -34,6 +34,7 @@ public class PostApiControllerTest {
     @Autowired
     private PostsRepository postsRepository;
 
+
     @After
     public void tearDown() throws Exception {
         postsRepository.deleteAll();

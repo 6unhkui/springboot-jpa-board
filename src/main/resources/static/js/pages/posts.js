@@ -36,21 +36,26 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#search-btn').on('click', function() {
+        const value = $('#search-btn').val().trim();
+        if(value.length == 0) return false;
+    })
 });
 
-function postDelete(id) {
-    if(!confirm("게시글을 정말 삭제하시겠습니까?"))
-        return false;
-
-    $.ajax({
-        type: "DELETE",
-        url : '/api/v1/posts/' + id,
-        cache: false,
-        success : function(data) {
-            location.href = "/";
-        },
-        error : function(jqXHR, textStatus, errorThrown){
-            console.log(textStatus, errorThrown);
-        }
-    });
-}
+// function postDelete(id) {
+//     if(!confirm("게시글을 정말 삭제하시겠습니까?"))
+//         return false;
+//
+//     $.ajax({
+//         type: "DELETE",
+//         url : '/api/v1/posts/' + id,
+//         cache: false,
+//         success : function(data) {
+//             location.href = "/";
+//         },
+//         error : function(jqXHR, textStatus, errorThrown){
+//             console.log(textStatus, errorThrown);
+//         }
+//     });
+// }

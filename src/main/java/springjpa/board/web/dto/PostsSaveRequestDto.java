@@ -1,8 +1,6 @@
 package springjpa.board.web.dto;
 
 import lombok.*;
-import net.bytebuddy.implementation.bind.annotation.Empty;
-import org.springframework.validation.annotation.Validated;
 import springjpa.board.domain.posts.Posts;
 
 import javax.validation.constraints.NotEmpty;
