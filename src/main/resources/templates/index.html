@@ -5,9 +5,17 @@
       layout:decorator="layout/layout">
 
     <div layout:fragment="content">
-        <a class="btn btn-primary" href="/posts/save" role="button" style="margin-bottom: 1rem;">게시글 등록</a>
+        <div style="margin-bottom: 1rem;">
+            <a class="btn btn-outline-primary" href="/posts/save" role="button">
+                게시글 등록
+            </a>
+            <form class="form-inline my-2 my-lg-0" style="display: inline-block; float: right">
+                <input class="form-control mr-sm-2" type="search" placeholder="검색어를 입력해주세요." id="search-input">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="button" id="search-btn">Search</button>
+            </form>
+        </div>
 
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>제목</th>
