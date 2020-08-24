@@ -5,11 +5,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import springjpa.board.domain.posts.Posts;
 import springjpa.board.domain.posts.PostsRepository;
+import springjpa.board.domain.user.User;
+import springjpa.board.domain.user.UserRepository;
 import springjpa.board.web.dto.PostsResponseDto;
 import springjpa.board.web.dto.PostsSaveRequestDto;
 import springjpa.board.web.dto.PostsUpdateRequestDto;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -18,10 +21,15 @@ import java.util.stream.Collectors;
 public class PostsService {
 
     private final PostsRepository postsRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public Long save(PostsSaveRequestDto requestDto){
-       return postsRepository.save(requestDto.toEntity()).getId();
+        User user = userRepository.findById(requestDto.getUserId()).orElseThrow(() -> new IllegalArgumentException("dd"));
+        Posts posts = requestDto.toEntity();
+        posts.setUser(user);
+
+        return postsRepository.save(posts).getId();
     }
 
     @Transactional

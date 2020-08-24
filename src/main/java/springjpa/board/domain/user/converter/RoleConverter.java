@@ -1,10 +1,5 @@
 package springjpa.board.domain.user.converter;
 
-import springjpa.board.domain.user.Role;
-
-import javax.persistence.AttributeConverter;
-import javax.persistence.Convert;
-
 //@Convert
 //public class RoleConverter implements AttributeConverter<Role, Integer> {
 //    @Override

@@ -28,6 +28,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation:2.3.1.RELEASE' // 필드 Validation 체크
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6' // SQL 로그에 파라미터에 전달되는 값 확인 *운영 단계에서는 사용 고려*
 	compile ('org.springframework.session:spring-session-jdbc') // session 저장소를 jdbc로 사용하기 위한 라이브러리
+	compile ('org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.1.RELEASE') // thymeleaf date 표시 라이브러리
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'

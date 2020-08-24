@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import springjpa.board.config.auth.LoginUser;
+import springjpa.board.config.auth.dto.SessionUser;
 import springjpa.board.service.PostsService;
 import springjpa.board.web.dto.PostsResponseDto;
 import springjpa.board.web.dto.PostsSaveRequestDto;
@@ -25,9 +27,8 @@ public class PostsApiController {
     }
 
     @PostMapping("/api/v1/posts")
-    public ResponseEntity save(@Valid PostsSaveRequestDto requestDto, BindingResult result) {
-        if(result.hasErrors())
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+    public ResponseEntity save(PostsSaveRequestDto requestDto) {
+        System.out.println(requestDto.toString());
         return ResponseEntity.ok(postsService.save(requestDto));
     }
 

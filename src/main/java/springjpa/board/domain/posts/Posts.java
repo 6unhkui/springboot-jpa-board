@@ -4,9 +4,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import springjpa.board.domain.BaseTimeEntity;
+import springjpa.board.domain.user.User;
 
 import javax.persistence.*;
 
+import java.util.List;
+
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -24,11 +28,21 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(referencedColumnName = "id")
+    private User user;
+
     @Builder
     public Posts(String title, String content, String author){
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    // == 연관 관계 편의 메소드 ==
+    public void setUser(User user){
+        this.user = user;
+        user.getPosts().add(this);
     }
 
     public void update(String title, String content) {

@@ -4,9 +4,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import springjpa.board.domain.BaseTimeEntity;
+import springjpa.board.domain.posts.Posts;
 //import springjpa.board.domain.user.converter.RoleConverter;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -28,6 +32,9 @@ public class User extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    @OneToMany(mappedBy = "user")
+    private List<Posts> posts = new ArrayList<>();
 
     @Builder
     public User(String name, String email, String picture, Role role) {

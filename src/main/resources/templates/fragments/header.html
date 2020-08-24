@@ -1,23 +1,25 @@
 <html lagn="ko"
       xmlns:th="http://www.thymeleaf.org">
     <div th:fragment="headerFragment">
-        <nav class="navbar navbar-dark bg-primary">
+        <nav class="header-wrap navbar navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="/">JPA Board</a>
+
                 <div>
-                    <a class="btn btn-outline-light my-sm-0 btn-sm" role="button" th:if="!${userName}"
+                    <a class="btn btn-outline-light my-sm-0 btn-sm" role="button" th:if="!${user}"
                        href="/oauth2/authorization/google">
                      Google Login
                     </a>
 
-                    <a class="btn btn-outline-light my-sm-0 btn-sm" role="button" th:if="!${userName}"
+                    <a class="btn btn-outline-light my-sm-0 btn-sm" role="button" th:if="!${user}"
                        href="/oauth2/authorization/naver">
                      Naver Login
                     </a>
                 </div>
 
-                <div th:if="${userName}">
-                    <div th:text="${userName}"
+                <div th:if="${user != null}">
+                    <img class="avatar" th:src="${user.picture}"/>
+                    <div th:text="${user.name + '님 안녕하세요.'}"
                          style="color : #fff; display: inline-block; margin-right: .6rem; position: relative; top: .2rem"></div>
                     <a class="btn btn-outline-light my-sm-0 btn-sm" role="button" href="/logout">
                     로그아웃

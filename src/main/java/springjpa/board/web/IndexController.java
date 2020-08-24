@@ -21,7 +21,7 @@ public class IndexController {
     @GetMapping("/")
     public String index(@LoginUser SessionUser user, Model model) {
         if(user != null)
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("user", user);
 
         model.addAttribute("posts", postsService.findAllDesc());
 
@@ -31,7 +31,7 @@ public class IndexController {
     @GetMapping("/posts/save")
     public String postSave(@LoginUser SessionUser user, Model model) {
         if(user != null)
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("user", user);
 
         model.addAttribute("form", new PostsSaveRequestDto());
         return "pages/posts/postWriteForm";
@@ -40,7 +40,7 @@ public class IndexController {
     @GetMapping("/posts/view/{id}")
     public String postView(@LoginUser SessionUser user, @PathVariable("id") Long id, Model model) {
         if(user != null)
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("user", user);
 
         model.addAttribute("post", postsService.findById(id));
         return "pages/posts/postView";
@@ -49,7 +49,7 @@ public class IndexController {
     @GetMapping("/posts/update/{id}")
     public String postUpdate(@LoginUser SessionUser user, @PathVariable("id") Long id, Model model) {
         if(user != null)
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("user", user);
 
         model.addAttribute("post", postsService.findById(id));
         return "pages/posts/postUpdateForm";

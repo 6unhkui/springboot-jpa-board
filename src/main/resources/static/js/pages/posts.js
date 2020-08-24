@@ -2,19 +2,31 @@ $(document).ready(function () {
     // 게시글 업로드
     $('#post-write-form').on('submit', function(e) {
         e.preventDefault();
-        const formData = $('#post-write-form').serializeArray();
-        $.ajax({
-            type: "POST",
-            url : '/api/v1/posts',
-            data : formData,
-            cache: false,
-            success : function(data) {
-                location.href = "/";
-            },
-            error : function(jqXHR, textStatus, errorThrown){
-                console.log(textStatus, errorThrown);
+        let formData = $('#post-write-form').serializeArray();
+        formData.push({"name" : "userId", "value" : $('#post-write-form #userId').val()})
+
+        var cnt = 0;
+        for (const [key, value] of formData.entries()) {
+            if(value.value.trim().length == 0) {
+                alert(value.name + '를 입력해주세요.');
+                cnt++;
+                return false;
             }
-        });
+        }
+        if(cnt == 0) {
+            $.ajax({
+                type: "POST",
+                url : '/api/v1/posts',
+                data : formData,
+                cache: false,
+                success : function(data) {
+                    location.href = "/";
+                },
+                error : function(jqXHR, textStatus, errorThrown){
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
     });
 
     // 게시글 수정

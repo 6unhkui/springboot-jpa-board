@@ -11,7 +11,7 @@
         <div th:object="${post}">
             <h1 th:text="*{title}"></h1>
             <h6 class="text-muted" th:text="*{author}" style="display: inline-block"></h6> ∙
-            <h6 class="text-muted" th:text="*{createdDate}" style="display: inline-block"></h6>
+            <h6 class="text-muted" th:text="*{#temporals.format(createdDate, 'yyyy-MM-dd')}" style="display: inline-block"></h6>
             <hr/>
             <p th:text="*{content}" style="min-height: 10rem"></p>
         </div>

@@ -18,6 +18,8 @@ spring:
     include: oauth
   session:
     store-type: jdbc
+  thymeleaf:
+    cache : false
 
 logging:
   level:
